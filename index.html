@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VidyaBodh — Comprehension-First Learning</title>
+    <meta name="description" content="VidyaBodh — offline-capable comprehension-first learning for Indian students." />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="phase2.css" />
+    <link rel="stylesheet" href="stage4-5.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="peer-battle.css" />
+</head>
+
+<body>
+
+    <!-- ══ PAGE: ROLE ══ -->
+    <div id="page-role" class="page">
+        <div class="role-content">
+            <div class="role-logo">VidyaBodh</div>
+            <p class="role-tagline">Comprehension-first learning for every student</p>
+            <div class="role-cards">
+                <div class="role-card student" id="role-student">
+                    <span class="role-card-icon">🎒</span>
+                    <div class="role-card-title">I'm a Student</div>
+                    <div class="role-card-sub">Learn, explore topics, and track your understanding journey.</div>
+                </div>
+                <div class="role-card teacher" id="role-teacher">
+                    <span class="role-card-icon">👩‍🏫</span>
+                    <div class="role-card-title">I'm a Teacher</div>
+                    <div class="role-card-sub">View your class health, triage alerts, and weekly insights.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: LOGIN ══ -->
+    <div id="page-login" class="page">
+        <!-- Rendered dynamically by App.renderLoginPage() -->
+    </div>
+
+    <!-- ══ PAGE: TEACHER SETUP ══ -->
+    <div id="page-teacher-setup" class="page">
+        <div class="tsetup-card">
+            <div class="tsetup-icon">👩‍🏫</div>
+            <h2 class="tsetup-title">Teacher Profile</h2>
+            <p class="tsetup-sub">Set up your profile once and get straight to your dashboard every time.</p>
+            <div class="form-group">
+                <label class="form-label" for="tname-input">Your Name</label>
+                <input id="tname-input" class="form-input" type="text" placeholder="e.g. Sunaina Ma'am"
+                    autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="tschool-input">School / Organisation</label>
+                <input id="tschool-input" class="form-input" type="text" placeholder="e.g. Govt Primary School, Dharwad"
+                    autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="tpin-input">Set a 4-digit PIN <span style="font-weight:400;color:var(--text-dim);">(optional — for secure login)</span></label>
+                <input id="tpin-input" class="form-input" type="password" inputmode="numeric" maxlength="4" placeholder="e.g. 1234" autocomplete="new-password" />
+            </div>
+            <button class="btn-primary" id="btn-teacher-start" style="width:100%;justify-content:center;">Open Dashboard →</button>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: STUDENT DASHBOARD ══ -->
+    <div id="page-student-dashboard" class="page"></div>
+
+    <!-- ══ PAGE: TEACHER DASHBOARD ══ -->
+    <div id="page-teacher-dashboard" class="page"></div>
+
+    <!-- ══ PAGE: LANDING ══ -->
+    <div id="page-landing" class="page">
+        <div class="landing-orb orb1"></div>
+        <div class="landing-orb orb2"></div>
+        <div class="landing-content">
+            <div class="greeting-badge"><span>✨</span><span id="greeting-text">Hey Students! 👋</span></div>
+            <h1 class="app-title" id="app-title">VidyaBodh</h1>
+            <p class="app-tagline" id="app-tagline">Learn smarter, not harder.</p>
+            <p class="lang-label" id="lang-label">Choose your language to begin</p>
+            <div class="lang-grid" id="lang-grid"></div>
+            <button class="btn-primary" id="btn-continue">Continue →</button>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: SETUP ══ -->
+    <div id="page-setup" class="page">
+        <div class="setup-card">
+            <h2 class="setup-title" id="setup-title">What is your name?</h2>
+            <p class="setup-sub">Let's personalize your learning journey.</p>
+            <div class="form-group">
+                <label class="form-label" for="name-input">Your Name</label>
+                <input id="name-input" class="form-input" type="text" placeholder="Enter your name…"
+                    autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <label class="form-label" id="class-label">Select your class</label>
+                <div class="class-grid" id="class-grid"></div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="pin-input">Set a 4-digit PIN <span style="font-weight:400;color:var(--text-dim);">(optional)</span></label>
+                <input id="pin-input" class="form-input" type="password" inputmode="numeric" maxlength="4" placeholder="e.g. 1234" autocomplete="new-password" />
+            </div>
+            <button class="btn-primary" id="btn-start" style="width:100%;justify-content:center;">Start Learning →</button>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: HOME ══ -->
+    <div id="page-home" class="page">
+        <header class="home-header">
+            <div class="home-logo" id="home-logo">VidyaBodh</div>
+            <div class="home-user">
+                <button class="avatar-btn" id="home-avatar-btn" title="Profile / Logout">
+                    <div class="avatar" id="avatar-letter">S</div>
+                </button>
+            </div>
+        </header>
+        <div class="home-main">
+            <h2 class="home-greeting" id="home-greeting">Welcome back!</h2>
+            <p class="home-sub">Pick up where you left off.</p>
+            <!-- Leaderboard strip -->
+            <div class="lb-strip" id="lb-strip" style="display:none;">
+                <span style="font-size:0.8rem;color:var(--text-muted);font-weight:600;">🏆 Your Points</span>
+                <div class="lb-item">📚 Quiz <span class="lb-pts" id="lb-quiz-pts">0</span></div>
+                <div class="lb-item">🤝 Teaching <span class="lb-pts teach" id="lb-teach-pts">0</span></div>
+            </div>
+            <div class="subject-tabs">
+                <button class="tab-btn active" id="tab-science">Science</button>
+                <button class="tab-btn" id="tab-math">Mathematics</button>
+            </div>
+            <p class="form-label" id="topics-label" style="margin-bottom:1rem;">Choose a Topic</p>
+            <div class="topics-grid" id="topics-grid"></div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: VIDEO ══ -->
+    <div id="page-video" class="page">
+        <div class="video-header">
+            <button class="back-btn" id="btn-video-back">← Back</button>
+            <div class="video-title-bar">
+                <h2 id="video-topic-title">Topic</h2>
+            </div>
+        </div>
+
+        <!-- ONLINE: AI Animated Video -->
+        <div id="ai-video-section" style="display:none;">
+            <div class="ai-video-wrap">
+                <div class="conn-badge online">
+                    <div class="conn-dot"></div>✨ AI Generated
+                </div>
+                <div class="ai-video-stage" id="ai-anim-stage"></div>
+            </div>
+            <div class="ai-narrator" id="ai-narrator-box"
+                style="padding:1rem 2rem;background:var(--bg2);border-bottom:1px solid var(--border);">
+                <p style="font-size:0.9rem;color:var(--text-muted);font-style:italic;" id="ai-narrator-text"></p>
+            </div>
+        </div>
+
+        <!-- OFFLINE: Pre-recorded Video Player -->
+        <div id="offline-video-section" style="display:none;">
+            <div class="offline-video-wrap">
+                <div class="conn-badge offline">
+                    <div class="conn-dot"></div>📁 Pre-recorded
+                </div>
+                <div class="offline-player">
+                    <div class="offline-stage" id="offline-anim-stage"></div>
+                    <div class="offline-caption" id="offline-caption-text"></div>
+                    <div class="fake-controls">
+                        <span class="fake-play">▶</span>
+                        <div class="fake-bar">
+                            <div class="fake-bar-fill" id="fake-fill"></div>
+                        </div>
+                        <span class="fake-time" id="fake-time">0:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3-LAYER SUMMARY CARDS (both modes) -->
+        <div class="layer-summary-section" id="layer-summary-section" style="display:none;">
+            <div class="layer-summary-title">📋 Lesson Summary</div>
+            <div class="layer-summary-grid" id="layer-summary-grid"></div>
+        </div>
+
+        <!-- START QUIZ -->
+        <div class="quiz-launch-wrap" id="quiz-launch-wrap" style="display:none;">
+            <button class="btn-primary" id="btn-start-quiz" style="min-width:200px;justify-content:center;">Start Quiz
+                →</button>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: QUIZ ══ -->
+    <div id="page-quiz" class="page">
+        <div class="quiz-header">
+            <span style="font-weight:700;font-size:1rem;" id="quiz-topic-name">VidyaBodh Quiz</span>
+            <div class="quiz-progress" id="quiz-dots"></div>
+        </div>
+        <div class="quiz-main">
+            <div class="q-counter" id="q-counter">Q1 / 5</div>
+            <p class="q-text" id="q-text">Question text</p>
+            <div class="options-grid" id="options-grid"></div>
+
+            <!-- Voice Trace — MANDATORY -->
+            <div class="voice-section" id="voice-section" style="display:none;">
+                <div class="voice-required-note" id="voice-required-note">
+                    <span class="req-dot"></span>
+                    <span id="voice-required-text">Voice explanation required before continuing</span>
+                </div>
+                <p class="voice-prompt" id="voice-prompt-text">Tell me in your own words — why did you choose this
+                    answer?</p>
+                <button class="voice-record-btn" id="btn-voice-record">
+                    <span class="mic-icon">🎤</span> Tap to Speak
+                </button>
+                <textarea class="voice-transcript" id="voice-transcript" placeholder="Or type your reasoning here…"
+                    rows="2" style="margin-top:10px;display:block;"></textarea>
+                <p class="voice-meta" id="voice-meta"></p>
+            </div>
+
+            <button class="btn-primary" id="btn-next-q"
+                style="display:none;width:100%;justify-content:center;margin-top:1rem;" disabled>Next Question
+                →</button>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: RESULT ══ -->
+    <div id="page-result" class="page">
+        <div class="result-card">
+            <div class="result-icon" id="result-icon">🌟</div>
+            <div class="result-badge understood" id="result-badge">True Understanding</div>
+            <h2 class="result-title" id="result-title">Your Result</h2>
+            <p class="result-msg" id="result-msg">Excellent! You truly understand this concept.</p>
+            <div class="result-actions">
+                <button class="btn-exit" id="btn-exit">Exit</button>
+                <button class="btn-secondary" id="btn-retry" style="padding:12px 24px;border-radius:100px;">Retry
+                    Quiz</button>
+                <button class="btn-explain" id="btn-explain">Further Explanation →</button>
+            </div>
+            <!-- Peer Learning Banner — always shown, adapts by learner type -->
+            <div class="peer-learning-banner" id="peer-learning-banner">
+                <div class="plb-header">
+                    <span class="plb-icon" id="plb-icon">🤝</span>
+                    <div class="plb-title" id="plb-title">Peer Learning</div>
+                </div>
+                <p class="plb-desc" id="plb-desc">Connect with a peer to strengthen your understanding!</p>
+                <button class="btn-peer-learn" id="btn-peer-learn">Connect →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PEER FIND MODAL OVERLAY ══ -->
+    <div class="peer-find-overlay" id="peer-find-overlay" style="display:none;">
+        <div class="peer-find-modal">
+            <span class="pfm-close" id="pfm-close">✕</span>
+            <div class="pfm-icon" id="pfm-icon">🤝</div>
+            <h3 class="pfm-title" id="pfm-title">Find a Peer</h3>
+            <p class="pfm-desc" id="pfm-desc"></p>
+            <div class="pfm-card" id="pfm-card">
+                <div class="pfm-card-label">📋 Ask your peer to explain using these key ideas:</div>
+                <ul class="pfm-bullets" id="pfm-bullets"></ul>
+            </div>
+            <button class="btn-primary" id="btn-pfm-close"
+                style="justify-content:center;width:100%;margin-top:1.2rem;">Got it! I'll find a peer ✓</button>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: PEER MATCHMAKING ══ -->
+    <div id="page-peer-match" class="page">
+        <div class="match-container">
+            <div id="match-search-section">
+                <div class="match-radar">
+                    <div class="radar-ring r1"></div>
+                    <div class="radar-ring r2"></div>
+                    <div class="radar-ring r3"></div>
+                    <div class="radar-center">🔍</div>
+                </div>
+                <div class="match-topic-badge" id="match-topic">Topic</div>
+                <p class="match-search-text" id="match-search-text">Searching for a peer across India...</p>
+                <div class="match-player-self">
+                    <div class="match-player-avatar" id="match-player-letter">S</div>
+                    <div class="match-player-name" id="match-player-name">You</div>
+                    <div class="match-player-loc">📍 Your device</div>
+                </div>
+            </div>
+            <div id="match-found-section" style="display:none;">
+                <div class="match-vs-layout">
+                    <div class="match-player-card">
+                        <div class="match-player-avatar" id="match-self-letter">S</div>
+                        <div class="match-player-name" id="match-self-name">You</div>
+                        <div class="match-player-loc">📍 Your device</div>
+                    </div>
+                    <div class="match-vs">⚔️</div>
+                    <div class="match-player-card">
+                        <div class="match-peer-avatar" id="match-peer-avatar">👧</div>
+                        <div class="match-player-name" id="match-peer-name">Peer</div>
+                        <div class="match-player-loc" id="match-peer-city">📍 India</div>
+                    </div>
+                </div>
+                <div class="match-found-badge">✅ Peer Found!</div>
+                <div class="match-countdown" id="match-countdown">3</div>
+                <p class="match-countdown-text">Battle starts in...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: PEER BATTLE QUIZ ══ -->
+    <div id="page-peer-battle" class="page">
+        <div class="battle-header">
+            <div class="battle-score-panel">
+                <div class="battle-player you">
+                    <div class="battle-player-label" id="battle-player-name">You</div>
+                    <div class="battle-score" id="battle-player-score">0</div>
+                </div>
+                <div class="battle-center">
+                    <div class="battle-q-num" id="battle-q-num">Q1 of 3</div>
+                    <div class="battle-timer-wrap">
+                        <div class="battle-timer-bar">
+                            <div class="battle-timer-fill" id="battle-timer-fill"></div>
+                        </div>
+                        <div class="battle-timer" id="battle-timer">30</div>
+                    </div>
+                </div>
+                <div class="battle-player peer">
+                    <div class="battle-player-label" id="battle-peer-name">Peer</div>
+                    <div class="battle-score" id="battle-peer-score">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="battle-main">
+            <div class="battle-peer-status-bar">
+                <div class="battle-peer-status thinking" id="battle-peer-status">Peer is thinking...</div>
+            </div>
+            <p class="battle-q-text" id="battle-q-text">Question text</p>
+            <div class="battle-options-grid" id="battle-options"></div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: PEER BATTLE RESULT ══ -->
+    <div id="page-peer-result" class="page">
+        <div class="battle-result-card">
+            <div class="battle-result-banner win" id="battle-result-banner">🏆 You Won!</div>
+            <div class="battle-res-scores">
+                <div class="brs-player">
+                    <div class="brs-name" id="battle-res-player-name">You</div>
+                    <div class="brs-score" id="battle-res-player-score">0</div>
+                </div>
+                <div class="brs-vs">VS</div>
+                <div class="brs-player">
+                    <div class="brs-name" id="battle-res-peer-name">Peer</div>
+                    <div class="brs-score peer" id="battle-res-peer-score">0</div>
+                    <div class="brs-loc" id="battle-res-peer-city"></div>
+                </div>
+            </div>
+            <div class="battle-badge-earned">
+                <div class="battle-badge-icon" id="battle-badge-icon">🏆</div>
+                <div class="battle-badge-label" id="battle-badge-label">Battle Winner</div>
+            </div>
+            <div class="battle-pts-wrap">
+                <span class="battle-pts-earned" id="battle-pts-earned">+10</span>
+                <span class="battle-pts-label">points earned</span>
+            </div>
+            <div class="battle-result-actions">
+                <button class="btn-secondary" id="btn-battle-rematch" style="padding:12px 24px;border-radius:100px;">🔄
+                    Rematch</button>
+                <button class="btn-primary" id="btn-battle-home" style="justify-content:center;">🏠 Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: CHARACTER PICKER ══ -->
+    <div id="page-character" class="page">
+        <div class="char-header">
+            <button class="back-btn" id="btn-char-back">← Back</button>
+            <div class="char-header-title">
+                <h2 id="char-header-title">Choose Your Guide</h2>
+                <p id="char-header-sub">Who explains this to you?</p>
+            </div>
+        </div>
+        <div class="char-main">
+            <div class="char-intro-banner">
+                <div class="char-intro-icon">🎭</div>
+                <div class="char-intro-text">
+                    <h3 id="char-banner-title">Pick your favourite character!</h3>
+                    <p id="char-banner-desc">They'll tell you a story and explain the concept in their own way. No two
+                        students see the same explanation.</p>
+                </div>
+            </div>
+            <div class="char-auto-timer" id="char-auto-timer">
+                <div class="timer-dot"></div>
+                <span id="char-timer-text">Auto-selecting in 5s…</span>
+            </div>
+            <div class="char-grid" id="char-grid"></div>
+            <div class="char-confirm-btn">
+                <button class="btn-primary" id="btn-char-confirm" style="justify-content:center;">Start Story →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: STORY EXPLANATION ══ -->
+    <div id="page-story" class="page">
+        <div class="story-header">
+            <button class="back-btn" id="btn-story-back">← Back</button>
+            <h2 style="font-size:1rem;font-weight:700;" id="story-header-title">Your Explanation</h2>
+            <div class="story-mode-badge" id="story-mode-badge">✨ Online</div>
+        </div>
+        <div class="story-main">
+            <div class="story-char-banner" id="story-char-banner">
+                <div class="story-char-avatar" id="story-char-avatar">🦉</div>
+                <div class="story-char-info">
+                    <h3 id="story-char-name">Ullu the Wise Owl</h3>
+                    <p id="story-char-tagline">Wisdom from the forest!</p>
+                </div>
+            </div>
+            <div class="story-text-card">
+                <div class="story-text-label">📖 Story</div>
+                <div class="story-text" id="story-text"></div>
+            </div>
+            <div class="story-breakdown">
+                <div class="story-breakdown-title">🔍 Key Ideas — Step by Step</div>
+                <div class="story-steps" id="story-steps"></div>
+                <div class="story-analogy" id="story-analogy"></div>
+            </div>
+            <div class="story-actions">
+                <button class="btn-secondary" id="btn-story-retry" style="padding:12px 24px;border-radius:100px;">Retry
+                    Quiz</button>
+                <button class="btn-primary" id="btn-story-home" style="justify-content:center;">I understand now
+                    →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: PEER LEARNING ══ -->
+    <div id="page-peer" class="page">
+        <div class="peer-header">
+            <button class="back-btn" id="btn-peer-back">← Back</button>
+            <h2 style="font-size:1rem;font-weight:700;">Peer Learning</h2>
+        </div>
+        <div class="peer-main">
+            <div class="peer-hero">
+                <span class="peer-hero-icon">🤝</span>
+                <h2 id="peer-hero-title">You understood it — now teach it!</h2>
+                <p id="peer-hero-desc">Teaching someone else is the best way to truly master a concept. Choose how you
+                    want to teach.</p>
+            </div>
+            <div class="peer-mode-tabs">
+                <button class="peer-tab active" id="tab-physical">📍 In Person</button>
+                <button class="peer-tab" id="tab-remote">📱 Remote (Async)</button>
+            </div>
+            <!-- Physical prompt card -->
+            <div id="peer-physical-section">
+                <div class="prompt-card">
+                    <div class="prompt-card-label">📋 Prompt Card — share with your peer</div>
+                    <div class="prompt-card-title" id="peer-card-title">Explain this concept:</div>
+                    <ul class="prompt-bullets" id="peer-bullets"></ul>
+                    <div class="check-qs" id="peer-check-qs"></div>
+                </div>
+                <div style="text-align:center;margin-top:1rem;">
+                    <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1rem;">After your peer listens,
+                        ask them the questions above. Did they understand?</p>
+                    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                        <button class="btn-secondary" id="btn-peer-no" style="padding:12px 24px;border-radius:100px;">😕
+                            Not yet</button>
+                        <button class="btn-peer" id="btn-peer-yes">✅ Yes, they got it! +3 pts</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Remote async voice -->
+            <div id="peer-remote-section" style="display:none;">
+                <div class="async-voice-section">
+                    <div class="async-voice-label">🎙️ Record your 30-second explanation</div>
+                    <div class="async-voice-prompt" id="async-voice-prompt">Explain the concept in your own words — as
+                        if your peer can hear you right now.</div>
+                    <button class="voice-record-btn" id="btn-async-record" style="margin-bottom:1rem;">
+                        <span class="mic-icon">🎤</span> Tap to Record
+                    </button>
+                    <textarea class="voice-transcript" id="async-transcript" rows="3"
+                        placeholder="Or type your explanation here…"></textarea>
+                    <div style="margin:1rem 0;">
+                        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem;">Explanation quality:
+                        </p>
+                        <div class="async-star-rating" id="async-stars">
+                            <span class="star-icon">⭐</span>
+                            <span class="star-icon">⭐</span>
+                            <span class="star-icon">⭐</span>
+                        </div>
+                    </div>
+                    <button class="btn-peer" id="btn-async-submit" style="width:100%;justify-content:center;"
+                        disabled>Submit Explanation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ PAGE: FURTHER EXPLANATION ══ -->
+    <div id="page-explain" class="page">
+        <div class="explain-header">
+            <button class="back-btn" id="btn-explain-back">← Back</button>
+            <h2 style="font-size:1rem;font-weight:700;" id="explain-header-title">Further Explanation</h2>
+        </div>
+        <div class="explain-main">
+            <div class="explain-badge misconception" id="explain-badge">Misconception</div>
+            <h2 class="explain-title" id="explain-title">Let's fix this!</h2>
+            <p class="explain-what" id="explain-what"></p>
+            <div class="explain-anim-wrap" id="explain-anim-wrap"></div>
+            <ul class="correction-list" id="correction-list"></ul>
+            <div class="analogy-card" id="analogy-card"></div>
+            <div class="explain-actions">
+                <button class="btn-secondary" id="btn-explain-retry"
+                    style="padding:12px 24px;border-radius:100px;">Retry Quiz</button>
+                <button class="btn-primary" id="btn-explain-home" style="justify-content:center;">I understand now →
+                    Topics</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="lang.js"></script>
+    <script src="data.js"></script>
+    <script src="remediation.js"></script>
+    <script src="quiz-engine.js"></script>
+    <script src="characters.js"></script>
+    <script src="story-engine.js"></script>
+    <script src="peer-learning.js"></script>
+    <script src="peer-battle.js"></script>
+    <script src="mock-data.js"></script>
+    <script src="student-dashboard.js"></script>
+    <script src="teacher-dashboard.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
