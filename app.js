@@ -6,13 +6,8 @@ const App = {
 
     show(id) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        const el = document.getElementById('page-' + id);
-        el.classList.add('active');
+        document.getElementById('page-' + id).classList.add('active');
         this.currentPage = id;
-        el.scrollTop = 0;
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
     },
 
     initLanding() {

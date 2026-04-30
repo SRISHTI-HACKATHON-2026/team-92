@@ -43,16 +43,12 @@ body {
 /* ── PAGES ── */
 .page {
     display: none;
+    min-height: 100vh;
 }
 
 .page.active {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    inset: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: var(--bg);
 }
 
 /* ── LANDING ── */
