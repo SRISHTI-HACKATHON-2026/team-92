@@ -10,7 +10,7 @@
 
 ## Live Demo
 
-> Open `[Click here to open VidyaBodh](https://srishti-hackathon-2026.github.io/team-92/)` in any modern browser — no installation or server required.
+> Open [Click here to open VidyaBodh](https://srishti-hackathon-2026.github.io/team-92/) in any modern browser — no installation or server required.
 
 ---
 
