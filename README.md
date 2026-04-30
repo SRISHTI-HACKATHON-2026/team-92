@@ -1,4 +1,6 @@
-# 🌿 VidyaBodh — Comprehension-First Learning for Every Indian Student
+# team-92
+
+# VidyaBodh — Comprehension-First Learning for Every Indian Student
 
 > *"Comprehension-first learning for every student."*
 
@@ -6,13 +8,13 @@
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-> Open `index.html` in any modern browser — no installation or server required.
+> Open [Click here to open VidyaBodh](https://srishti-hackathon-2026.github.io/team-92/) in any modern browser — no installation or server required.
 
 ---
 
-## 🧩 Problem Statement
+## Problem Statement
 
 India's school system struggles with a hidden crisis: students can recall answers but cannot explain *why*. Standard tests reward memorization, not comprehension. Teachers lack per-student diagnostic data to intervene early. Students in low-connectivity regions have no access to quality, language-appropriate learning content.
 
@@ -20,46 +22,46 @@ India's school system struggles with a hidden crisis: students can recall answer
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🏫 Dual Role System
+### Dual Role System
 | Role | Capabilities |
 |------|-------------|
 | **Student** | Learn topics, take quizzes, get personalized explanations, earn points |
 | **Teacher** | View class-wide comprehension health, per-student diagnostics, triage alerts |
 
-### 🔐 Secure PIN-Based Login
+### Secure PIN-Based Login
 - Both students and teachers can set optional 4-digit PINs
 - Persistent profiles stored in `localStorage` — no server required
 - "Switch Account" option for shared-device classrooms
 
-### 🌐 7-Language Support
+### 7-Language Support
 Full UI and curriculum content in:
 `English` · `हिन्दी` · `தமிழ்` · `తెలుగు` · `ಕನ್ನಡ` · `বাংলা` · `मराठी`
 
-### 📺 Adaptive Video Learning (Stage 1–3)
+### Adaptive Video Learning (Stage 1–3)
 - **3-Layer Lesson Structure** per topic:
-  - 🎬 **Layer 1 — Concept**: Core explanation
-  - 🤔 **Layer 2 — Common Confusion**: Addresses typical misconceptions
-  - 📖 **Layer 3 — Story Analogy**: Relatable local-context narrative
+  - **Layer 1 — Concept**: Core explanation
+  - **Layer 2 — Common Confusion**: Addresses typical misconceptions
+  - **Layer 3 — Story Analogy**: Relatable local-context narrative
 - **Online mode**: AI-generated animated video with TTS narration
 - **Offline mode**: Pre-rendered CSS animations with captions
 
-### 🧠 Comprehension Quiz with Voice Reasoning (Stage 2)
+### Comprehension Quiz with Voice Reasoning (Stage 2)
 - 5 MCQ questions per topic, translated into all supported languages
 - Students must **explain their answer verbally or in text** before proceeding
 - Mandatory voice/text reasoning trace captures *why* the student chose an answer
 
-### 🎯 AI Classification Engine (Stage 3)
+### AI Classification Engine (Stage 3)
 Each quiz session is classified into one of four learner profiles:
 | Classification | Meaning |
 |---|---|
-| 🌟 **True Understanding** | Correct answers + correct reasoning |
-| 📚 **Rote Learning** | Correct answers, but reasoning is memorized, not conceptual |
-| 🤔 **Concept Confusion** | Incomplete understanding of a key mechanism |
-| 🔄 **Misconception** | Actively wrong mental model that needs correction |
+| **True Understanding** | Correct answers + correct reasoning |
+| **Rote Learning** | Correct answers, but reasoning is memorized, not conceptual |
+| **Concept Confusion** | Incomplete understanding of a key mechanism |
+| **Misconception** | Actively wrong mental model that needs correction |
 
-### 🎭 Personalized Story Explanations (Stage 4)
+### Personalized Story Explanations (Stage 4)
 - Students pick a **favourite character** (age-appropriate per class: 3–7)
 - Characters include: Ullu the Owl 🦉, Mia the Detective 🔍, Robo the Robot 🤖, Dadi the Grandmother 👵, and more
 - Auto-assign timer (5 seconds) ensures no student is blocked
@@ -69,19 +71,19 @@ Each quiz session is classified into one of four learner profiles:
   - **Rote Learning** → Mechanism-focused "why" explanation
   - **True Understanding** → Extension challenge
 
-### 🤝 Peer Learning — Teach-Back Model (Stage 5)
+### Peer Learning — Teach-Back Model (Stage 5)
 - **In-Person Mode**: Prompt card with key ideas + comprehension check questions for physical peer teaching
 - **Remote Async Mode**: Student records a 30-second voice explanation; rated for quality (1–3 stars)
 - Teaching earns **Teaching Points** in the leaderboard
 - **Peer Battle Quiz**: Real-time (simulated) 1v1 quiz battle against a peer — matchmaking with radar animation, countdown, and live scoring
 
-### 📊 Student Dashboard
+### Student Dashboard
 - Visual progress across all completed topics
 - Classification badges earned
 - Achievement system (auto-fires on milestones)
 - Points breakdown: Quiz Points vs. Teaching Points
 
-### 👩‍🏫 Teacher Dashboard
+### Teacher Dashboard
 - **Class Health Overview**: distribution of classification types across students
 - **Triage Alerts**: students requiring intervention (misconceptions, persistent confusion)
 - **Weekly Insights**: topic-wise comprehension trends
@@ -89,7 +91,7 @@ Each quiz session is classified into one of four learner profiles:
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 BeeSun/
@@ -116,7 +118,7 @@ BeeSun/
 
 ---
 
-## 🎓 Supported Curriculum
+## Supported Curriculum
 
 | Subject | Topic | Classes |
 |---------|-------|---------|
@@ -128,7 +130,7 @@ BeeSun/
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -144,7 +146,7 @@ BeeSun/
 
 ---
 
-## ⚡ Getting Started
+## Getting Started
 
 ### Option 1 — Open Locally
 ```bash
@@ -162,7 +164,7 @@ open BeeSun/index.html
 
 ---
 
-## 🧪 How to Use
+## How to Use
 
 ### As a Student
 1. Select **"I'm a Student"** on the home screen
@@ -180,7 +182,7 @@ open BeeSun/index.html
 
 ---
 
-## 📐 Comprehension Classification Logic
+## Comprehension Classification Logic
 
 The `QuizEngine` analyzes each quiz submission using two signals:
 
@@ -193,7 +195,7 @@ These signals are combined across 5 questions to produce a **session-level class
 
 ---
 
-## 🏆 Gamification & Motivation
+## Gamification & Motivation
 
 | Action | Points |
 |--------|--------|
@@ -208,7 +210,7 @@ Points are displayed on the home screen leaderboard strip. Achievements fire aut
 
 ---
 
-## 💡 Design Principles
+## Design Principles
 
 1. **Comprehension over completion** — every interaction demands reasoning, not just answers
 2. **No internet dependency** — fully functional offline for rural/low-connectivity classrooms
@@ -218,7 +220,7 @@ Points are displayed on the home screen leaderboard strip. Achievements fire aut
 
 ---
 
-## 🗺️ Roadmap / Future Scope
+## Roadmap / Future Scope
 
 - [ ] Backend sync (Firebase / Supabase) for cross-device progress
 - [ ] More curriculum topics (e.g., Forces, Decimals, Living Things)
@@ -229,7 +231,7 @@ Points are displayed on the home screen leaderboard strip. Achievements fire aut
 
 ---
 
-## 👥 Team
+## Team
 
 **Team 92 — SRISHTI Hackathon 2026**
 
@@ -239,13 +241,13 @@ Points are displayed on the home screen leaderboard strip. Achievements fire aut
 
 ---
 
-## 📜 License
+## License
 
 This project is submitted as part of **SRISHTI Hackathon 2026**. All rights reserved by the team.
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 - Inspired by the real challenges faced by government school teachers across India
 - Remediation strategies grounded in cognitive science literature on misconceptions and formative assessment
